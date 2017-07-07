@@ -1,27 +1,27 @@
 angular
-	.module("meetingNote", [
-"ui-router",
-"ngResource"
+	.module("meetingHub", [
+		"ui.router",
+		"ngResource"
 	])
 	.config([
-		"$stateProvider"
+		"$stateProvider",
 		Router
-		])
-.factory("MeetingNote", [
-"$resource",
-MeetingNoteFactory
+	])
+	.factory("MeetingNote", [
+		"$resource",
+		MeetingNoteFactory
 	])
 	.controller("IndexController", [
 		"MeetingNote",
 		"$state",
-		IndexController
+		IndexControllerFunc
 		])
 	.controller("ShowController", [
 		"stateParams",
 		"MeetingNote",
 		"$state",
-		ShowController
-		])
+		ShowControllerFunc
+	])
 
 function MeetingNoteFactory($resource) {
 	return $resource("/meetingNotes/:name", {}, {
@@ -29,7 +29,24 @@ function MeetingNoteFactory($resource) {
 	})
 }
 
-function IndexController(MeetingNote, $state) {
+
+function Router ($stateProvider) {
+	$stateProvider
+		.state("index", {
+			url: '/',
+			templateUrl: '/public/javascripts/ng-views/index.html',
+			controller: "IndexController",
+			controllerAs: "vm"
+		})
+		.state("show", {
+			url: '/meetingnotes/:name',
+			templateUrl: '/public/javascripts/ng-views/show.html',
+			controller: "ShowController",
+			controllerAs: "vm"
+	})
+}
+
+function IndexControllerFunc(MeetingNote, $state) {
 	this.meetingnotes = MeetingNote.query()
 	this.newMeetingNote = new MeetingNote()
 
@@ -42,23 +59,7 @@ function IndexController(MeetingNote, $state) {
 
 function ShowControllerFunc ($stateParams, MeetingNote, $state) {
 	this.meetingnote = MeetingNote.get({name: $stateParams.name, title: $stateParams.title, description: $stateParams.description, dateCreated: $stateParams.dateCreated, Meetinghub: $stateParams.Meetinghub})
-	this.update = function ( {
+	this.update = function () {
 		$state.go("show", {name: MeetingNote.name})
-	})
-}
-
-function Router ($stateProvider) {
-	$stateProvider
-		.state("index", {
-		url: '/', 
-		templateUrl: '/public/javascripts/ng-views/index.html',
-		controller: "IndexController",
-		controllerAs: "vm"
-		})
-		.state("show", {
-		.url: '/meetingnotes/:name',
-		templateUrl: '/public/javascripts/ng-views/show.html',
-		controller: "ShowController",
-		controllerAs: "vm"
-	})
+	}
 }
