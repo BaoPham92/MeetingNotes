@@ -5,51 +5,47 @@
 	"Title": "Meet in the pacific ocean",
 	"Description": "Want to go and attempt deep diving? Sounds like fun! I'll go ahead and set the event on the calender if you're interested!",
 	"Date_Created": "March, 2017",
-	"MeetingCenter": "conference1.com"
+	"MeetingCenter": "Conf#1"
 
-	}
-]
-[
-	{
+},
+
+{
 
 	"Name": "Bao",
 	"Title": "Hey man! Today is my birthday! I am turning 24! Let's celebrate! ",
 	"Description": "No seriously, if you are reading this Nayana, or SIFU JAMES, and or my Adriaaaan <333 I want presents! A lambo would suffice (:",
 	"Date_Created": "July 10th, 2017",
-	"MeetingCenter": "giveBaoHisPresentsPlease.com"
+	"MeetingCenter": "Conf#2"
 
-	}
-]
-[
-	{
+},
+
+{
 
 	"Name": "Seeker",
 	"Title": "Did you know humans discovered a form of matter? Time crystals?",
 	"Description": "is a periodic structure that repeats in time, as well in space. Normal three-dimensional crystals have a repeating pattern in space, but remain unchanged with respect to time; time crystals repeat themselves in time as well, leading the crystal to change from moment to moment.",
 	"Date_Created": "April , 2017",
-	"MeetingCenter": "https://en.wikipedia.org/wiki/Time_crystal"
+	"MeetingCenter": "Conf#3"
 
-	}
-]
-[
-	{
+},
+
+{
 
 	"Name": "Mr.Robot",
 	"Title": "Mr. Robot's Scale Of Hacking Is Doable",
 	"Description": "To be honest, you can do the majority of Mr. Robot's hacking by having a nokia phone that lets you install kali linux and having a packet inject with and wireless dish.",
 	"Date_Created": "June 2nd, 2017",
-	"MeetingCenter": "google.com"
+	"MeetingCenter": "Conf#4"
 
-	}
-]
-[
-	{
+},
+
+{
 
 	"Name": "Cali Coast.",
 	"Title": "The Untold Rules Of California.",
 	"Description": "Did you know that even hotdog stands get taxed by the Cartel in California? They actively take protection money from every business, and residents or even business owners would just speak as this is normal, a unwritten rule that you just abide by.",
 	"Date_Created": "January 19th, 2017",
-	"MeetingCenter": "google.com"
+	"MeetingCenter": "Conf#5"
 
 	}
 ]

@@ -44,7 +44,6 @@ function MeetingNoteFactory ($resource) {
 	})
 }
 
-
 function Router ($stateProvider) {
 	$stateProvider
 		.state("index", {
