@@ -40,7 +40,7 @@ function Router ($stateProvider) {
 }
 
 function MeetingNoteFactory($resource) {
-	return $resource("/meetingNotes/:name", {}, {
+	return $resource("/api/meetingNotes/:name", {}, {
 		update: { method: "PUT" }
 	})
 }
