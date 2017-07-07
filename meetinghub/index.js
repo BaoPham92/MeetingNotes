@@ -50,10 +50,9 @@ app.put("/api/meetingnotes/:name", function(req, res){
 });
 
 app.get("/*", function(req, res){
-  res.render("meetingnotes");
+  res.render("layout-main");
 });
 
 app.listen(app.get("port"), function(){
-  console.log("It's aliiive!");
+  console.log("Hurray...we are online!");
 });
-

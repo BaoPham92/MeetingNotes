@@ -1,0 +1,16 @@
+{{#unless meetingnote}}
+<h2>That meetingnote couldn't be found!</h2>
+{{else}}
+<h2>{{meetingnote.name}} for President in {{meetingnote.year}}!</h2>
+<form method="post" action="/meetingnotes/{{meetingnote.name}}/delete">
+  <button type="submit">Concede</button>
+</form>
+<form action="/meetingnotes" method="post">
+  <input type="date" name="meetingnote[date_created]" placeholder="date created" value="{{meetingnote.date_created}}" />
+  <input type="text" name="meetingnote[title]" placeholder="meeting title" value="{{meetingnote.title}}" />
+  <input type="text" name="meetingnote[name]" placeholder="written by" value="{{meetingnote.name}}" />
+  <input type="text" name="meetingnote[meetingcenter]" placeholder="name of meeting center" value="{{meetingnote.meetinghub}}" />
+  <input type="text" name="meetingnote[description]" placeholder="description" value="{{meetingnote.description}}" />
+  <button type="submit">Edit Dashboard</button>
+</form>
+{{/unless}}

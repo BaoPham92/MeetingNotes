@@ -2,7 +2,6 @@ angular
 	.module("meetingHub", [
 	"ui.router",
 	"ngResource"
-	])
 	.config([
 		"$stateProvider",
 		Router
@@ -10,7 +9,6 @@ angular
 	.factory("MeetingNote", [
 	"$resource",
 	MeetingNoteFactory
-	])
 	.controller("IndexController", [
 		"MeetingNote",
 		"$state",
@@ -22,6 +20,7 @@ angular
 		"$state",
 		ShowControllerFunc
 		])
+
 
 
 function Router ($stateProvider) {
@@ -45,7 +44,28 @@ function MeetingNoteFactory ($resource) {
 	})
 }
 
+<<<<<<< HEAD
 function IndexControllerFunc (MeetingNote, $state) {
+=======
+
+function Router ($stateProvider) {
+	$stateProvider
+		.state("index", {
+			url: '/',
+			templateUrl: '/public/javascripts/ng-views/index.html',
+			controller: "IndexController",
+			controllerAs: "vm"
+		})
+		.state("show", {
+			url: '/meetingnotes/:name',
+			templateUrl: '/public/javascripts/ng-views/show.html',
+			controller: "ShowController",
+			controllerAs: "vm"
+	})
+}
+
+function IndexControllerFunc(MeetingNote, $state) {
+>>>>>>> a30aa1e4cd3992adf05b0cbb902cad6a41b8b5aa
 	this.meetingnotes = MeetingNote.query()
 	this.newMeetingNote = new MeetingNote()
 
