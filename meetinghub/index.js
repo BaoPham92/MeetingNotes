@@ -53,5 +53,5 @@ app.get("/*", function(req, res){
 });
 
 app.listen(app.get("port"), function(){
-  console.log("It's aliiive!");
+  console.log("Hurray...we are online!");
 });
