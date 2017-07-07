@@ -2,11 +2,11 @@ var mongoose = require("mongoose")
 
 var MeetingNoteSchema = new mongoose.Schema(
   {
-    Name: String,
-    Title: String,
-    Description: String,
-    DateCreated: Date,
-    Meetinghub: String
+    name: String,
+    title: String,
+    description: String,
+    datecreated: Date,
+    meetinghub: String
   }
 );
 

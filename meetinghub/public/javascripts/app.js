@@ -17,7 +17,7 @@ angular
 		IndexControllerFunc
 		])
 	.controller("ShowController", [
-		"stateParams",
+		"$stateParams",
 		"MeetingNote",
 		"$state",
 		ShowControllerFunc
@@ -32,7 +32,7 @@ function Router ($stateProvider) {
 			controllerAs: "vm"
 		})
 		.state("show", {
-			url: '/meetingnotes/:name',
+			url: '/meetingnotes/:title',
 			templateUrl: '/assets/javascripts/ng-views/show.html',
 			controller: "ShowController",
 			controllerAs: "vm"
@@ -40,7 +40,7 @@ function Router ($stateProvider) {
 }
 
 function MeetingNoteFactory($resource) {
-	return $resource("/api/meetingNotes/:name", {}, {
+	return $resource("/api/meetingnotes/:title", {}, {
 		update: { method: "PUT" }
 	})
 }
@@ -56,8 +56,8 @@ function IndexControllerFunc(MeetingNote, $state) {
 }
 
 function ShowControllerFunc ($stateParams, MeetingNote, $state) {
-	this.meetingnote = MeetingNote.get({name: $stateParams.name, title: $stateParams.title, description: $stateParams.description, dateCreated: $stateParams.dateCreated, Meetinghub: $stateParams.Meetinghub})
+	this.meetingnote = MeetingNote.get({ title: $stateParams.title })
 	this.update = function () {
-		$state.go("show", {name: MeetingNote.name})
+		$state.go("show", {title: MeetingNote.title})
 	}
 }

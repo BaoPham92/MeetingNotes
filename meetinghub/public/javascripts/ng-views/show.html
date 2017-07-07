@@ -1,16 +1,22 @@
-<div ng-if="!vm.meetingnote.name">
+<div ng-if="!vm.meetingnote">
   <h2>404 on that meetingnote</h2>
 </div>
 
-<div ng-if="vm.meetingnote.name">
-  <h2> {{vm.meetingnote.name}} for President in {{vm.meetingnote.year}} </h2>
+<div ng-if="vm.meetingnote">
+  <h2>Date: {{vm.meetingnote.date_Created}}</h2>
+  <h2>Title: {{vm.meetingnote.title}}</h2>
+  <h2>Name: {{vm.meetingnote.name}}</h2>
+  <h2>Meeting Center: {{vm.meetingnote.meetingcenter}}</h2>
+  <h2>Description: {{vm.meetingnote.description}}</h2>
 </div>
 
+<div>
 <form ng-submit="vm.update()">
   <input type="date" ng-model="meetingnote[date_created]" placeholder="date created" />
   <input type="text" ng-model="meetingnote[title]" placeholder="meeting title" />
   <input type="text" ng-model="meetingnote[name]" placeholder="written by" />
   <input type="text" ng-model="meetingnote[meetingcenter]" placeholder="name of meeting center" />
   <input type="text" ng-model="meetingnote[description]" placeholder="description" />
-  <button type="submit">Run for Office</button>
+  <button type="submit">Update Note</button>
 </form>
+</div>

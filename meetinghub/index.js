@@ -24,8 +24,8 @@ app.get("/api/meetingnotes", function(req, res){
   });
 });
 
-app.get("/api/meetingnotes/:name", function(req, res){
-  MeetingNote.findOne({name: req.params.name}).then(function(meetingnote){
+app.get("/api/meetingnotes/:title", function(req, res){
+  MeetingNote.findOne({title: req.params.title}).then(function(meetingnote){
     res.json(meetingnote)
   });
 });
@@ -37,14 +37,14 @@ app.post("/api/meetingnotes", function(req, res){
 });
 
 
-app.delete("/api/meetingnotes/:name", function(req, res){
-  MeetingNote.findOneAndRemove({name: req.params.name}).then(function(){
+app.delete("/api/meetingnotes/:title", function(req, res){
+  MeetingNote.findOneAndRemove({title: req.params.title}).then(function(){
     res.json({ success: true })
   });
 });
 
-app.put("/api/meetingnotes/:name", function(req, res){
-  MeetingNote.findOneAndUpdate({name: req.params.name}, req.body, {new: true}).then(function(meetingnote){
+app.put("/api/meetingnotes/:title", function(req, res){
+  MeetingNote.findOneAndUpdate({title: req.params.title}, req.body, {new: true}).then(function(meetingnote){
     res.json(meetingnote)
   });
 });
