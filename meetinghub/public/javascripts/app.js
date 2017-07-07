@@ -1,16 +1,14 @@
 angular
 	.module("meetingHub", [
-		"ui.router",
-		"ngResource"
-	])
+	"ui.router",
+	"ngResource"
 	.config([
 		"$stateProvider",
 		Router
-	])
+		])
 	.factory("MeetingNote", [
-		"$resource",
-		MeetingNoteFactory
-	])
+	"$resource",
+	MeetingNoteFactory
 	.controller("IndexController", [
 		"MeetingNote",
 		"$state",
@@ -21,8 +19,28 @@ angular
 		"MeetingNote",
 		"$state",
 		ShowControllerFunc
-	])
+		])
 
+function Router ($stateProvider) {
+	$stateProvider
+		.state("index", {
+		url: '/', 
+		templateUrl: '/public/javascripts/ng-views/index.html',
+		controller: "IndexController",
+		controllerAs: "vm"
+		})
+		.state("show", {
+		.url: '/meetingnotes/:name',
+		templateUrl: '/public/javascripts/ng-views/show.html',
+		controller: "ShowController",
+		controllerAs: "vm"
+	})
+}
+function MeetingNoteFactory ($resource) {
+	return $resource("/meetingNotes/:name", {}, {
+		update: { method: "PUT" }
+	})
+}
 function Router ($stateProvider) {
 	$stateProvider
 		.state("index", {
