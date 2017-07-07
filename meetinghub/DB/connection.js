@@ -5,7 +5,7 @@ var MeetingNoteSchema = new mongoose.Schema(
     Name: String,
     Title: String,
     Description: String,
-    DateCreated: String,
+    DateCreated: Date,
     Meetinghub: String
   }
 );

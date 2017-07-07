@@ -1,1 +1,6 @@
-
+<h2>{{meetingnotes.length}} meetingnotes</h2>
+{{#each meetingnotes as |candidate index|}}
+<h3>
+  <a href="/meetingnotes/{{meetingnote.title}}">{{candidate.name}} for President in {{candidate.year}}</a>
+</h3>
+{{/each}}
