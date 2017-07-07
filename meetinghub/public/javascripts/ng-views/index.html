@@ -1,22 +1,15 @@
 <h1>Welcome To Meeting Central</h1>
+<h2>Here are the list of meetings</h2>
 
-<h3>{{vm.meetingnotes.length Names From Meeting Central. }}</h3>
+<h3>{{vm.meetingnotes.length}} MeetingNotes</h3>
 
-<div>
-	<h3 data-ng-repeat="meetingnote in vm.meetingnotes">
-		<a data-ui-sref="show({name: meetingnote.name">
-			- {{meetingnote.Date_Created}}<br>
-			- {{meetingnote.title}}<br>
-			- {{meetingnote.name}}<br>
-			- {{meetingnote.MeetingCenter}}<br>
-			- {{meetingnote.description}}
-		</a>
-
-	</h3>
-
+<div class="meetingnotes">
+  <h3 data-ng-repeat="meetingnote in vm.meetingnotes">
+    <a data-ui-sref="show({title: candidate.title})">{{meetingnote.title}}</a>
+  </h2>
 </div>
 
-<h2>Any Meeting Notes Ideas? Create One Below!</h2>
+<h2>Create next meeting here below</h2>
 
 <form ng-submit="vm.create()">
 	<input type="Date" ng-model="vm.newMeetingNote.Date_Created" placeholder="Date" />

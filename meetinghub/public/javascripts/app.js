@@ -23,36 +23,34 @@ angular
 		ShowControllerFunc
 	])
 
-function MeetingNoteFactory($resource) {
-	return $resource("/meetingNotes/:name", {}, {
-		update: { method: "PUT" }
-	})
-}
-
-
 function Router ($stateProvider) {
 	$stateProvider
 		.state("index", {
 			url: '/',
-			templateUrl: '/public/javascripts/ng-views/index.html',
+			templateUrl: '/assets/javascripts/ng-views/index.html',
 			controller: "IndexController",
 			controllerAs: "vm"
 		})
 		.state("show", {
 			url: '/meetingnotes/:name',
-			templateUrl: '/public/javascripts/ng-views/show.html',
+			templateUrl: '/assets/javascripts/ng-views/show.html',
 			controller: "ShowController",
 			controllerAs: "vm"
 	})
 }
 
+function MeetingNoteFactory($resource) {
+	return $resource("/meetingNotes/:name", {}, {
+		update: { method: "PUT" }
+	})
+}
 function IndexControllerFunc(MeetingNote, $state) {
 	this.meetingnotes = MeetingNote.query()
 	this.newMeetingNote = new MeetingNote()
 
 	this.create = function() {
-		this.newMeetingNote.$save().then( function(meetingnote){
-			$state.go("show", {name: meetingnote.name})
+		this.newMeetingNote.$save().then(function(meetingnote){
+			$state.go("show", {title: meetingnote.title})
 		})
 	}
 }
