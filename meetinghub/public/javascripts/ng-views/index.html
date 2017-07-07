@@ -1,10 +1,10 @@
 <h1>Welcome To Meeting Central</h1>
 
-<h3>{{vm.meetingnotes.length Names From Meeting Central. }}</h3>
+<h3>{{vm.meetingnotes.length}} Names From Meeting Central.</h3>
 
 <div>
 	<h3 data-ng-repeat="meetingnote in vm.meetingnotes">
-		<a data-ui-sref="show({name: meetingnote.name">
+		<a data-ui-sref="show({title: meetingnote.title">
 			- {{meetingnote.Date_Created}}<br>
 			- {{meetingnote.title}}<br>
 			- {{meetingnote.name}}<br>

@@ -44,9 +44,6 @@ function MeetingNoteFactory ($resource) {
 	})
 }
 
-<<<<<<< HEAD
-function IndexControllerFunc (MeetingNote, $state) {
-=======
 
 function Router ($stateProvider) {
 	$stateProvider
@@ -65,7 +62,6 @@ function Router ($stateProvider) {
 }
 
 function IndexControllerFunc(MeetingNote, $state) {
->>>>>>> a30aa1e4cd3992adf05b0cbb902cad6a41b8b5aa
 	this.meetingnotes = MeetingNote.query()
 	this.newMeetingNote = new MeetingNote()
 
