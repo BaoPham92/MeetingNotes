@@ -36,6 +36,7 @@ app.post("/api/meetingnotes", function(req, res){
   })
 });
 
+
 app.delete("/api/meetingnotes/:name", function(req, res){
   MeetingNote.findOneAndRemove({name: req.params.name}).then(function(){
     res.json({ success: true })
