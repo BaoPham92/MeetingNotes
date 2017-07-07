@@ -1,51 +1,28 @@
 angular
-	.module("meetingNote", [
-"ui-router",
-"ngResource"
+	.module("meetingHub", [
+	"ui.router",
+	"ngResource"
 	])
 	.config([
-		"$stateProvider"
+		"$stateProvider",
 		Router
 		])
-.factory("MeetingNote", [
-"$resource",
-MeetingNoteFactory
+	.factory("MeetingNote", [
+	"$resource",
+	MeetingNoteFactory
 	])
 	.controller("IndexController", [
 		"MeetingNote",
 		"$state",
-		IndexController
+		IndexControllerFunc
 		])
 	.controller("ShowController", [
 		"stateParams",
 		"MeetingNote",
 		"$state",
-		ShowController
+		ShowControllerFunc
 		])
 
-function MeetingNoteFactory($resource) {
-	return $resource("/meetingNotes/:name", {}, {
-		update: { method: "PUT" }
-	})
-}
-
-function IndexController(MeetingNote, $state) {
-	this.meetingnotes = MeetingNote.query()
-	this.newMeetingNote = new MeetingNote()
-
-	this.create = function() {
-		this.newMeetingNote.$save().then( function(meetingnote){
-			$state.go("show", {name: meetingnote.name})
-		})
-	}
-}
-
-function ShowControllerFunc ($stateParams, MeetingNote, $state) {
-	this.meetingnote = MeetingNote.get({name: $stateParams.name, title: $stateParams.title, description: $stateParams.description, dateCreated: $stateParams.dateCreated, Meetinghub: $stateParams.Meetinghub})
-	this.update = function ( {
-		$state.go("show", {name: MeetingNote.name})
-	})
-}
 
 function Router ($stateProvider) {
 	$stateProvider
@@ -61,4 +38,27 @@ function Router ($stateProvider) {
 		controller: "ShowController",
 		controllerAs: "vm"
 	})
+}
+function MeetingNoteFactory ($resource) {
+	return $resource("/meetingNotes/:name", {}, {
+		update: { method: "PUT" }
+	})
+}
+
+function IndexControllerFunc (MeetingNote, $state) {
+	this.meetingnotes = MeetingNote.query()
+	this.newMeetingNote = new MeetingNote()
+
+	this.create = function() {
+		this.newMeetingNote.$save().then( function(meetingnote){
+			$state.go("show", {name: meetingnote.name})
+		})
+	}
+}
+
+function ShowControllerFunc ($stateParams, MeetingNote, $state) {
+	this.meetingnote = MeetingNote.get({name: $stateParams.name, title: $stateParams.title, description: $stateParams.description, dateCreated: $stateParams.dateCreated, Meetinghub: $stateParams.Meetinghub})
+	this.update = function () {
+		$state.go("show", {name: MeetingNote.name})
+	}
 }

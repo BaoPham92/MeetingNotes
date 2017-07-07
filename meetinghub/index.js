@@ -1,5 +1,4 @@
 var express  = require("express");
-var morgan   = require('morgan');
 var parser   = require("body-parser");
 var hbs      = require("express-handlebars");
 var mongoose = require("./db/connection");
@@ -18,7 +17,6 @@ app.engine(".hbs", hbs({
 }));
 app.use("/assets", express.static("public"));
 app.use(parser.json());
-app.use(morgan('tiny'));
 
 app.get("/api/meetingnotes", function(req, res){
   MeetingNote.find({}).then(function(meetingnotes){
